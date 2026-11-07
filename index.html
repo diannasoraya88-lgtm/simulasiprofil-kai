@@ -300,7 +300,7 @@ function renderNav(){document.getElementById("nav").innerHTML=DATA.nav.map(([k,l
 function renderFoot(){const C=DATA.contact;document.getElementById("foot").innerHTML=`<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
 <div><img class="flogo" src="${DATA.logo}" alt="KAI"><h4>PT Kereta Api Indonesia (Persero)</h4><p>${T(DATA.intro.p).slice(0,110)}…</p></div>
 <div><h4>${T(U.quick)}</h4>${DATA.nav.map(([k,l])=>`<a onclick="go('${k}')">${T(l)}</a>`).join("")}</div>
-<div><h4>${T(U.contact)}</h4><div>${hl(T(C.addr.v))}</div><div>${C.cc.v}</div><div>${C.tel}</div><div>${hl(T(C.mail.v))}</div></div>
+<div><h4>${T(U.contact)}</h4><div><a href="${C.maps.url}" target="_blank" rel="noopener">${hl(T(C.addr.v))}</a></div><div>${C.cc.v}</div><div>${C.tel}</div><div>${hl(T(C.mail.v))}</div></div>
 <div><h4>${T(U.social)}</h4><div>${C.soc.v}</div></div></div><div class="disc">${T(U.disclaimer)}</div>`}
 function render(){document.documentElement.lang=lang;renderNav();renderFoot();
  const app=document.getElementById("app");app.innerHTML=`<div class="page on">${PAGES[cur]()}</div>`;
