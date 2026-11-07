@@ -102,6 +102,8 @@ footer a:hover{color:var(--orange)}
 
 footer a[href]{display:inline}
 .cbox a{color:var(--blue);font-weight:600}
+
+.mis{margin:6px 0 0;padding-left:22px}.mis li{margin-bottom:10px}.mis li::marker{color:var(--orange);font-weight:700}
 </style>
 </head>
 <body>
@@ -165,9 +167,12 @@ const DATA = {
       {y:"1945",t:{id:"Pada 28 September 1945, kantor pusat kereta api di Bandung diambil alih dari Jepang; tanggal ini diperingati sebagai Hari Kereta Api Indonesia.",en:"On 28 September 1945 the railway head office in Bandung was taken over from the Japanese; the date is commemorated as Indonesian Railway Day."}},
       {y:"1998",t:{id:"Bentuk perusahaan menjadi Persero berdasarkan Peraturan Pemerintah No. 19 Tahun 1998.",en:"The company became a Persero under Government Regulation No. 19 of 1998."}},
       {y:"2011",t:{id:"Nama perusahaan menjadi PT Kereta Api Indonesia (Persero). [Verifikasi rincian pada publikasi resmi KAI]",en:"The company name became PT Kereta Api Indonesia (Persero). [Verify details in official KAI publications]"}}],
-    visionT:{id:"Visi",en:"Vision"}, missionT:{id:"Misi",en:"Mission"},
-    vision:{id:"Menjadi solusi ekosistem transportasi terbaik untuk Indonesia.",en:"To be the best transportation ecosystem solution for Indonesia."},
-    mission:{id:"Menyediakan sistem transportasi yang aman, efisien, berbasis digital, dan berkembang pesat untuk memenuhi kebutuhan pelanggan. [LENGKAPI POIN MISI LAINNYA DARI kai.id]",en:"Providing a safe, efficient, digital-based and fast-growing transportation system to meet customer needs. [ADD THE OTHER MISSION POINTS FROM kai.id]"},
+    visionT:{id:"Visi Kami",en:"Our Vision"}, missionT:{id:"Misi Kami",en:"Our Mission"},
+    vision:{id:"Mendorong Terciptanya Ekosistem Layanan Kereta Api yang Efisien dan Berkelanjutan Menuju Operator Kelas Dunia",en:"Driving an Efficient and Sustainable Railway Service Ecosystem Towards a World-Class Operator"},
+    mission:[
+      {id:"Menyediakan pelayanan mobilitas penumpang berbasis kereta api yang mengedepankan keselamatan, ketepatan waktu, kenyamanan, efisiensi, dan keberlanjutan",en:"Providing rail-based passenger mobility services that prioritise safety, punctuality, comfort, efficiency and sustainability"},
+      {id:"Menyediakan solusi transportasi dan logistik berbasis angkutan kereta api yang efisien, andal, dan terintegrasi untuk mendukung penurunan biaya logistik nasional",en:"Providing efficient, reliable and integrated rail-based transport and logistics solutions to support lower national logistics costs"},
+      {id:"Mendorong inovasi melalui digitalisasi dan kemajuan teknologi, pengembangan bisnis non-farebox, peningkatan kapabilitas organisasi, serta penguatan tata kelola sektor perkeretaapian",en:"Driving innovation through digitalisation and technological advancement, non-farebox business development, stronger organisational capability, and improved governance of the railway sector"}],
     tlT:{id:"Sejarah Singkat",en:"Brief History"}, valT:{id:"Nilai Budaya AKHLAK",en:"AKHLAK Corporate Values"},
     values:[["Amanah",{id:"Memegang teguh kepercayaan yang diberikan",en:"Upholding the trust given"}],["Kompeten",{id:"Terus belajar dan mengembangkan kapabilitas",en:"Continuously learning and developing capability"}],["Harmonis",{id:"Saling peduli dan menghargai perbedaan",en:"Caring for each other and respecting differences"}],["Loyal",{id:"Berdedikasi dan mengutamakan kepentingan bangsa dan negara",en:"Dedicated, putting nation and state first"}],["Adaptif",{id:"Terus berinovasi dan antusias menghadapi perubahan",en:"Innovating and embracing change"}],["Kolaboratif",{id:"Membangun kerja sama yang sinergis",en:"Building synergistic cooperation"}]]
   },
@@ -239,8 +244,8 @@ home:()=>`
 
 about:()=>{const A=DATA.about;return head(A.title)+`
 <section><div class="wrap two"><div><h2>${lang==="id"?"Profil Perusahaan":"Company Profile"}</h2><p>${hl(T(A.profile))}</p></div>
-<div><div class="cbox"><h4>${T(A.visionT)}</h4><p>${hl(T(A.vision))}</p><h4>${T(A.missionT)}</h4><p>${hl(T(A.mission))}</p></div></div></div></section>
-<section class="alt"><div class="wrap"><h2>${T(A.tlT)}</h2><div class="sim">${lang==="id"?"Verifikasi seluruh tahun dan fakta pada publikasi resmi KAI sebelum dipresentasikan.":"Verify all years and facts against official KAI publications before presenting."}</div><div class="tl">${A.timeline.map(x=>`<div><b>${x.y}</b><br>${hl(T(x.t))}</div>`).join("")}</div></div></section>
+<div><div class="cbox"><h4>${T(A.visionT)}</h4><p>${hl(T(A.vision))}</p><h4>${T(A.missionT)}</h4><ol class="mis">${A.mission.map(x=>`<li>${T(x)}</li>`).join("")}</ol></div></div></div></section>
+<section class="alt"><div class="wrap"><h2>${T(A.tlT)}</h2><div class="tl">${A.timeline.map(x=>`<div><b>${x.y}</b><br>${hl(T(x.t))}</div>`).join("")}</div></div></section>
 <section><div class="wrap"><h2>${T(A.valT)}</h2><div class="vals">${A.values.map(v=>`<div class="val"><b>${v[0]}</b><br><span style="font-size:14px;color:var(--muted)">${T(v[1])}</span></div>`).join("")}</div></div></section>`},
 
 services:()=>head(DATA.servicesPage.t)+`<section><div class="wrap"><div class="sim">${T(DATA.servicesPage.note)}</div><div class="grid">${DATA.services.map(svcCard).join("")}</div></div></section>`,
