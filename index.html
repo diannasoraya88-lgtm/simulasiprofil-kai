@@ -106,6 +106,15 @@ footer a[href]{display:inline}
 .mis{margin:6px 0 0;padding-left:22px}.mis li{margin-bottom:10px}.mis li::marker{color:var(--orange);font-weight:700}
 
 .orgbox{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:#fff;cursor:zoom-in}.orgbox img{display:block;width:100%;min-width:900px;height:auto}.lb .in.wide{width:min(1300px,100%)}
+
+.ccards{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.cc{background:var(--bg2);border-radius:14px;padding:22px}
+.ico{width:46px;height:46px;border-radius:50%;background:#fff;color:var(--navy);display:inline-flex;align-items:center;justify-content:center;font:700 15px Poppins;text-decoration:none;margin:0 6px 6px 0}
+.socs a.ico:hover{background:var(--orange);color:#fff}
+.cl{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.cv{font:600 20px Poppins;color:var(--navy);margin-top:4px;word-break:break-word}.cv a{color:var(--navy);text-decoration:none}
+.hq{display:grid;gap:28px;grid-template-columns:1fr 1.4fr 1fr;align-items:start}.hq h2{margin:0}.hq p{margin:6px 0 0}
+@media(max-width:760px){.hq{grid-template-columns:1fr;gap:16px}}
 </style>
 </head>
 <body>
@@ -202,13 +211,15 @@ const DATA = {
     alt:{id:"Bagan struktur organisasi PT Kereta Api Indonesia (Persero)",en:"Organizational structure chart of PT Kereta Api Indonesia (Persero)"},
     hint:{id:"Ketuk gambar untuk memperbesar. Geser ke samping untuk melihat seluruh bagan.",en:"Tap the image to enlarge. Scroll sideways to see the whole chart."}},
   contact:{title:{id:"Hubungi KAI",en:"Contact KAI"},
-    addr:{l:{id:"Alamat Kantor Pusat",en:"Head Office Address"},v:{id:"Jalan Perintis Kemerdekaan No. 1, Bandung 40117, Jawa Barat",en:"Jalan Perintis Kemerdekaan No. 1, Bandung 40117, West Java"}},
-    cc:{l:{id:"Contact Center",en:"Contact Center"},v:{id:"121 (021-121) · WhatsApp 0811-2223-3121",en:"121 (021-121) · WhatsApp 0811-2223-3121"}},
-    mail:{l:{id:"Email Layanan Pelanggan",en:"Customer Service Email"},v:"<a href='mailto:cs@kai.id'>cs@kai.id</a>"},
-    web:{l:{id:"Website Resmi",en:"Official Website"},v:"https://www.kai.id"},
-    soc:{l:{id:"Media Sosial Resmi",en:"Official Social Media"},v:"<a href='https://instagram.com/keretaapikita' target='_blank' rel='noopener'>Instagram @keretaapikita</a> · <a href='https://www.facebook.com/keretaapikita' target='_blank' rel='noopener'>Facebook</a> · <a href='https://youtube.com/keretaapikita' target='_blank' rel='noopener'>YouTube</a> · X @keretaapikita"},
-    visit:{id:"Kunjungi Website Resmi KAI",en:"Visit KAI's Official Website"},call:{id:"Hubungi via WhatsApp",en:"Contact via WhatsApp"},
-    callUrl:"https://wa.me/6281122233121"}
+    cc:{l:{id:"Call Center",en:"Call Center"},v:"121 / (021) 121"},
+    wa:{l:{id:"WhatsApp",en:"WhatsApp"},v:"+62 811 2223 3121",url:"https://wa.me/6281122233121"},
+    mail:{l:{id:"Email",en:"Email"},v:"<a href='mailto:cs@kai.id'>cs@kai.id</a>"},
+    soc:{l:{id:"Media Sosial",en:"Social Media"},v:"KAI121_",links:[["f","Facebook","https://www.facebook.com/keretaapikita"],["X","X","https://x.com/kai121"],["IG","Instagram","https://instagram.com/kai121_"],["TT","TikTok","https://www.tiktok.com/@kai121_"],["@","Threads","https://www.threads.net/@kai121_"]]},
+    hqT:{id:"Kantor Pusat",en:"Head Office"}, addrL:{id:"Alamat",en:"Address"}, telL:{id:"Telepon",en:"Phone"},
+    addr:{v:{id:"Jl. Perintis Kemerdekaan No. 1 Kota Bandung, Jawa Barat 40117",en:"Jl. Perintis Kemerdekaan No. 1, Bandung City, West Java 40117"}},
+    tel:"022-4230031 | 4230039 | 4230054",
+    web:{v:"https://www.kai.id"},
+    visit:{id:"Kunjungi Website Resmi KAI",en:"Visit KAI's Official Website"},call:{id:"Hubungi via WhatsApp",en:"Contact via WhatsApp"}}
 };
 
 
@@ -247,7 +258,7 @@ services:()=>head(DATA.servicesPage.t)+`<section><div class="wrap"><div class="g
 
 info:()=>{const I=DATA.info;const list=DATA.news.filter(n=>cat.news==="all"||n.cat===cat.news);return head(I.title)+`
 <section><div class="wrap"><h2>${T(I.svcT)}</h2><div class="grid">${I.svc.map(s=>`<div class="card"><div class="b"><h3 style="font-size:17px">${T(s.t)}</h3><p>${hl(T(s.d))}</p><a class="btn s" ${ext("https://www.kai.id")}>${T(U.detail)} →</a></div></div>`).join("")}</div></div></section>
-<section class="alt"><div class="wrap"><h2>${T(I.newsT)}</h2><div class="sim">${lang==="id"?"Ringkasan berita dari media; periksa ketentuan terbaru di kanal resmi KAI (kai.id / Access by KAI).":"News summarised from media sources; check the latest terms on KAI's official channels (kai.id / Access by KAI)."}</div>${tabs(I.cats,"news","setNews")}<div class="grid">${list.map(newsCard).join("")}</div></div></section>`},
+<section class="alt"><div class="wrap"><h2>${T(I.newsT)}</h2>${tabs(I.cats,"news","setNews")}<div class="grid">${list.map(newsCard).join("")}</div></div></section>`},
 
 gallery:()=>{const G=DATA.gallery;const ps=G.photos.filter(p=>cat.photo==="all"||p[0]===cat.photo);const vs=G.videos.filter(v=>cat.video==="all"||v[0]===cat.video);return head(G.title)+`
 <section><div class="wrap"><h2>${T(G.photoT)}</h2>${tabs(G.cats,"photo","setPhoto")}${photoGrid(ps)}</div></section>
@@ -255,9 +266,15 @@ gallery:()=>{const G=DATA.gallery;const ps=G.photos.filter(p=>cat.photo==="all"|
 
 org:()=>{const O=DATA.org;return head(O.title)+`<section><div class="wrap"><div class="orgbox" onclick="openOrg()"><img src="${O.img}" alt="${T(O.alt)}"></div><p class="meta" style="margin-top:10px">${T(O.hint)}</p></div></section>`},
 
-contact:()=>{const C=DATA.contact;const row=r=>`<div class="cbox"><h4>${T(r.l)}</h4><div>${hl(T(r.v))}</div></div>`;return head(C.title)+`
-<section><div class="wrap two"><div style="display:grid;gap:14px">${[C.addr,C.cc,C.mail,C.soc].map(row).join("")}<div class="cbox"><h4>${T(C.web.l)}</h4><a ${ext(C.web.v)}>${C.web.v}</a></div>
-<p style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn o" ${ext(C.web.v)}>${T(C.visit)}</a><a class="btn" ${ext(C.callUrl)}>${T(C.call)}</a></p></div>
+contact:()=>{const C=DATA.contact;const ic=(t)=>`<span class="ico">${t}</span>`;
+const card=(i,l,v)=>`<div class="cc">${ic(i)}<div class="cl">${T(l)}</div><div class="cv">${v}</div></div>`;
+return head(C.title)+`<section><div class="wrap"><div class="ccards">
+${card("☎",C.cc.l,C.cc.v)}${card("✆",C.wa.l,`<a href="${C.wa.url}" target="_blank" rel="noopener">${C.wa.v}</a>`)}${card("✉",C.mail.l,C.mail.v)}
+<div class="cc"><div class="socs">${C.soc.links.map(s=>`<a class="ico" href="${s[2]}" target="_blank" rel="noopener" title="${s[1]}" aria-label="${s[1]}">${s[0]}</a>`).join("")}</div><div class="cl">${T(C.soc.l)}</div><div class="cv">${C.soc.v}</div></div>
+</div>
+<hr style="border:0;border-top:1px solid var(--line);margin:40px 0">
+<div class="hq"><h2>${T(C.hqT)}</h2><div><div class="cl">${T(C.addrL)}</div><p>${T(C.addr.v)}</p></div><div><div class="cl">${T(C.telL)}</div><p>${C.tel}</p></div></div>
+<p style="display:flex;gap:10px;flex-wrap:wrap;margin:26px 0"><a class="btn o" ${ext(C.web.v)}>${T(C.visit)}</a><a class="btn" ${ext(C.wa.url)}>${T(C.call)}</a></p>
 <div class="map">${T(U.mapPh)}</div></div></section>`}
 };
 
@@ -266,8 +283,8 @@ function renderNav(){document.getElementById("nav").innerHTML=DATA.nav.map(([k,l
 function renderFoot(){const C=DATA.contact;document.getElementById("foot").innerHTML=`<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
 <div><h4>PT Kereta Api Indonesia (Persero)</h4><p>${T(DATA.intro.p).slice(0,110)}…</p></div>
 <div><h4>${T(U.quick)}</h4>${DATA.nav.map(([k,l])=>`<a onclick="go('${k}')">${T(l)}</a>`).join("")}</div>
-<div><h4>${T(U.contact)}</h4><div>${hl(T(C.addr.v))}</div><div>${hl(T(C.cc.v))}</div><div>${hl(T(C.mail.v))}</div></div>
-<div><h4>${T(U.social)}</h4><div>${hl(T(C.soc.v))}</div></div></div><div class="disc">${T(U.disclaimer)}</div>`}
+<div><h4>${T(U.contact)}</h4><div>${hl(T(C.addr.v))}</div><div>${C.cc.v}</div><div>${C.tel}</div><div>${hl(T(C.mail.v))}</div></div>
+<div><h4>${T(U.social)}</h4><div>${C.soc.v}</div></div></div><div class="disc">${T(U.disclaimer)}</div>`}
 function render(){document.documentElement.lang=lang;renderNav();renderFoot();
  const app=document.getElementById("app");app.innerHTML=`<div class="page on">${PAGES[cur]()}</div>`;
  document.getElementById("nav").classList.remove("open")}
