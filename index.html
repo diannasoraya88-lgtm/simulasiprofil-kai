@@ -122,9 +122,9 @@ footer a[href]{display:inline}
 <script>
 /* =====================================================================
    DATA KONTEN — edit di sini. Setiap teks berbentuk {id:"...", en:"..."}.
-   Teks [ISI ...] = placeholder: ganti dengan data resmi terverifikasi.
+   Teks = placeholder: ganti dengan data resmi terverifikasi.
    ===================================================================== */
-const PH = "[ISI DENGAN DATA RESMI TERBARU]";
+const PH = "";
 const COLORS = {c1:"c1",c2:"c2",c3:"c3",c4:"c4"}; // kelas warna placeholder foto
 // FOTO: simpan file di folder assets/images/ lalu isi "img" dengan path relatif, mis. img:"assets/images/kereta1.jpg".
 // Galeri: tambahkan elemen ketiga, mis. ["train","c1","assets/images/kereta1.jpg"]. Kosong = placeholder warna.
@@ -149,17 +149,12 @@ const DATA = {
   },
   intro:{t:{id:"Mengenal KAI",en:"Getting to Know KAI"},
     p:{id:"PT Kereta Api Indonesia (Persero) adalah badan usaha milik negara (BUMN) penyelenggara jasa transportasi perkeretaapian di Indonesia, berkantor pusat di Bandung, Jawa Barat. KAI melayani angkutan penumpang dan barang serta terus berkomitmen pada keselamatan, kenyamanan, dan pelayanan masyarakat.",en:"PT Kereta Api Indonesia (Persero) is a state-owned enterprise providing railway transport services in Indonesia, headquartered in Bandung, West Java. KAI serves passengers and freight and remains committed to safety, comfort and public service."}},
-  stats:[ // JANGAN isi angka sebelum diverifikasi
-    {v:"[ISI ANGKA]",l:{id:"Penumpang per tahun",en:"Passengers per year"}},
-    {v:"[ISI ANGKA]",l:{id:"Panjang jalur (km)",en:"Track length (km)"}},
-    {v:"[ISI ANGKA]",l:{id:"Jumlah stasiun",en:"Number of stations"}},
-    {v:"[ISI ANGKA]",l:{id:"Jumlah pegawai",en:"Employees"}}],
   services:[
     {c:"c1",t:{id:"Angkutan Penumpang",en:"Passenger Transport"},d:{id:"Layanan perjalanan kereta api antarkota dan perkotaan yang dioperasikan KAI.",en:"Intercity and urban railway passenger services operated by KAI."},who:"KAI",url:"https://www.kai.id"},
     {c:"c2",t:{id:"Angkutan Barang",en:"Freight Transport"},d:{id:"Layanan pengangkutan barang dan logistik melalui jaringan kereta api.",en:"Goods and logistics transport through the railway network."},who:"KAI",url:"https://www.kai.id"},
-    {c:"c3",t:{id:"Layanan Pariwisata",en:"Tourism Services"},d:{id:"Perjalanan wisata dengan kereta api. [Verifikasi cakupan layanan di situs resmi]",en:"Rail-based tourism travel. [Verify service scope on the official site]"},who:"KAI",url:"https://www.kai.id"},
-    {c:"c4",t:{id:"Layanan Pendukung Perkeretaapian",en:"Railway Support Services"},d:{id:"Layanan penunjang operasional perkeretaapian. [ISI DENGAN DATA RESMI TERBARU]",en:"Services supporting railway operations. [FILL WITH LATEST OFFICIAL DATA]"},who:"KAI",url:"https://www.kai.id"},
-    {c:"c1",t:{id:"Ekosistem Bisnis Perkeretaapian",en:"Railway Business Ecosystem"},d:{id:"Layanan yang dijalankan anak perusahaan atau entitas lain dalam ekosistem KAI, bukan dioperasikan langsung oleh perusahaan induk. [Daftar anak perusahaan: ISI DENGAN DATA RESMI]",en:"Services run by subsidiaries or other entities in the KAI ecosystem, not directly operated by the parent company. [Subsidiary list: FILL WITH OFFICIAL DATA]"},who:"SUB",url:"https://www.kai.id"}],
+    {c:"c3",t:{id:"Layanan Pariwisata",en:"Tourism Services"},d:{id:"Perjalanan wisata dengan kereta api.",en:"Rail-based tourism travel."},who:"KAI",url:"https://www.kai.id"},
+    {c:"c4",t:{id:"Layanan Pendukung Perkeretaapian",en:"Railway Support Services"},d:{id:"Layanan penunjang operasional perkeretaapian.",en:"Services supporting railway operations."},who:"KAI",url:"https://www.kai.id"},
+    {c:"c1",t:{id:"Ekosistem Bisnis Perkeretaapian",en:"Railway Business Ecosystem"},d:{id:"Layanan yang dijalankan anak perusahaan atau entitas lain dalam ekosistem KAI, bukan dioperasikan langsung oleh perusahaan induk.",en:"Services run by subsidiaries or other entities in the KAI ecosystem, not directly operated by the parent company."},who:"SUB",url:"https://www.kai.id"}],
   whoLabel:{KAI:{id:"Dioperasikan PT KAI (induk)",en:"Operated by PT KAI (parent)"},SUB:{id:"Anak perusahaan / entitas lain",en:"Subsidiary / other entity"}},
   about:{
     title:{id:"Tentang PT Kereta Api Indonesia (Persero)",en:"About PT Kereta Api Indonesia (Persero)"},
@@ -168,7 +163,7 @@ const DATA = {
       {y:"1864",t:{id:"Pembangunan jalur kereta api pertama di Hindia Belanda dimulai di Kemijen, Semarang.",en:"Construction of the first railway in the Dutch East Indies began at Kemijen, Semarang."}},
       {y:"1945",t:{id:"Pada 28 September 1945, kantor pusat kereta api di Bandung diambil alih dari Jepang; tanggal ini diperingati sebagai Hari Kereta Api Indonesia.",en:"On 28 September 1945 the railway head office in Bandung was taken over from the Japanese; the date is commemorated as Indonesian Railway Day."}},
       {y:"1998",t:{id:"Bentuk perusahaan menjadi Persero berdasarkan Peraturan Pemerintah No. 19 Tahun 1998.",en:"The company became a Persero under Government Regulation No. 19 of 1998."}},
-      {y:"2011",t:{id:"Nama perusahaan menjadi PT Kereta Api Indonesia (Persero). [Verifikasi rincian pada publikasi resmi KAI]",en:"The company name became PT Kereta Api Indonesia (Persero). [Verify details in official KAI publications]"}}],
+      {y:"2011",t:{id:"Nama perusahaan menjadi PT Kereta Api Indonesia (Persero).",en:"The company name became PT Kereta Api Indonesia (Persero)."}}],
     visionT:{id:"Visi Kami",en:"Our Vision"}, missionT:{id:"Misi Kami",en:"Our Mission"},
     vision:{id:"Mendorong Terciptanya Ekosistem Layanan Kereta Api yang Efisien dan Berkelanjutan Menuju Operator Kelas Dunia",en:"Driving an Efficient and Sustainable Railway Service Ecosystem Towards a World-Class Operator"},
     mission:[
@@ -178,16 +173,16 @@ const DATA = {
     tlT:{id:"Sejarah Singkat",en:"Brief History"}, valT:{id:"Nilai Budaya AKHLAK",en:"AKHLAK Corporate Values"},
     values:[["Amanah",{id:"Memegang teguh kepercayaan yang diberikan",en:"Upholding the trust given"}],["Kompeten",{id:"Terus belajar dan mengembangkan kapabilitas",en:"Continuously learning and developing capability"}],["Harmonis",{id:"Saling peduli dan menghargai perbedaan",en:"Caring for each other and respecting differences"}],["Loyal",{id:"Berdedikasi dan mengutamakan kepentingan bangsa dan negara",en:"Dedicated, putting nation and state first"}],["Adaptif",{id:"Terus berinovasi dan antusias menghadapi perubahan",en:"Innovating and embracing change"}],["Kolaboratif",{id:"Membangun kerja sama yang sinergis",en:"Building synergistic cooperation"}]]
   },
-  servicesPage:{t:{id:"Layanan KAI",en:"KAI Services"},note:{id:"Layanan dibedakan antara yang dioperasikan langsung PT KAI dan yang dijalankan anak perusahaan atau entitas lain.",en:"Services are distinguished between those operated directly by PT KAI and those run by subsidiaries or other entities."}},
+  servicesPage:{t:{id:"Layanan KAI",en:"KAI Services"},note:{id:"",en:""}},
   info:{
     title:{id:"Informasi dan Berita KAI",en:"KAI Information and News"},
     svcT:{id:"Informasi Layanan",en:"Service Information"}, newsT:{id:"Berita dan Aktivitas Perusahaan",en:"News and Company Activities"},
     svc:[
       {t:{id:"Informasi Perjalanan",en:"Travel Information"},d:{id:"Jadwal dan rute perjalanan melalui kanal resmi KAI.",en:"Schedules and routes via KAI's official channels."}},
       {t:{id:"Informasi Tiket",en:"Ticket Information"},d:{id:"Pemesanan tiket dilakukan melalui kanal resmi KAI (situs ini tidak menjual tiket).",en:"Tickets are booked through KAI's official channels (this site does not sell tickets)."}},
-      {t:{id:"Fasilitas Perjalanan",en:"Travel Facilities"},d:{id:"Fasilitas stasiun dan kereta. [ISI DENGAN DATA RESMI]",en:"Station and train facilities. [FILL WITH OFFICIAL DATA]"}},
-      {t:{id:"Keselamatan dan Keamanan",en:"Safety and Security"},d:{id:"Panduan keselamatan bagi pelanggan. [ISI DENGAN DATA RESMI]",en:"Safety guidance for passengers. [FILL WITH OFFICIAL DATA]"}},
-      {t:{id:"Informasi Pelanggan",en:"Customer Information"},d:{id:"Ketentuan dan layanan pelanggan. [ISI DENGAN DATA RESMI]",en:"Customer terms and services. [FILL WITH OFFICIAL DATA]"}}],
+      {t:{id:"Fasilitas Perjalanan",en:"Travel Facilities"},d:{id:"Fasilitas stasiun dan kereta.",en:"Station and train facilities."}},
+      {t:{id:"Keselamatan dan Keamanan",en:"Safety and Security"},d:{id:"Panduan keselamatan bagi pelanggan.",en:"Safety guidance for passengers."}},
+      {t:{id:"Informasi Pelanggan",en:"Customer Information"},d:{id:"Ketentuan dan layanan pelanggan.",en:"Customer terms and services."}}],
     cats:{promo:{id:"Promo & Tarif",en:"Promos & Fares"},corp:{id:"Berita Perusahaan",en:"Company News"},social:{id:"Kegiatan Sosial",en:"Social Activities"},innov:{id:"Inovasi Layanan",en:"Service Innovation"},pub:{id:"Pelayanan Publik",en:"Public Service"},safety:{id:"Kampanye Keselamatan",en:"Safety Campaign"}}
   },
   news:[
@@ -239,9 +234,8 @@ home:()=>`
 <div class="note">${T(U.disclaimer)}</div></div><div class="rail"></div></div>
 <section><div class="wrap two"><div><div class="kicker">KAI</div><h2>${T(DATA.intro.t)}</h2><p>${T(DATA.intro.p)}</p></div>${ph("c1","")}</div></section>
 <section class="alt"><div class="wrap"><h2>${T(DATA.nav[2][1])}</h2><div class="grid">${DATA.services.slice(0,4).map(svcCard).join("")}</div></div></section>
-<section><div class="wrap"><h2>KAI at a Glance</h2><div class="stats">${DATA.stats.map(s=>`<div class="stat"><b class="ph-txt">${s.v}</b>${T(s.l)}</div>`).join("")}</div></div></section>
-<section class="alt"><div class="wrap"><h2>${lang==="id"?"Informasi Terbaru":"Latest Information"}</h2><div class="grid">${DATA.news.slice(0,3).map(newsCard).join("")}</div><p><a class="btn" onclick="go('info')">${lang==="id"?"Semua informasi":"All information"}</a></p></div></section>
-<section><div class="wrap"><h2>${lang==="id"?"Galeri Pilihan":"Featured Gallery"}</h2>${photoGrid(DATA.gallery.photos.slice(0,4).map(p=>p))}<p><a class="btn" onclick="go('gallery')">${T(DATA.nav[4][1])}</a></p></div></section>`,
+<section><div class="wrap"><h2>${lang==="id"?"Informasi Terbaru":"Latest Information"}</h2><div class="grid">${DATA.news.slice(0,3).map(newsCard).join("")}</div><p><a class="btn" onclick="go('info')">${lang==="id"?"Semua informasi":"All information"}</a></p></div></section>
+<section class="alt"><div class="wrap"><h2>${lang==="id"?"Galeri Pilihan":"Featured Gallery"}</h2>${photoGrid(DATA.gallery.photos.slice(0,4).map(p=>p))}<p><a class="btn" onclick="go('gallery')">${T(DATA.nav[4][1])}</a></p></div></section>`,
 
 about:()=>{const A=DATA.about;return head(A.title)+`
 <section><div class="wrap two"><div><h2>${lang==="id"?"Profil Perusahaan":"Company Profile"}</h2><p>${hl(T(A.profile))}</p></div>
@@ -249,7 +243,7 @@ about:()=>{const A=DATA.about;return head(A.title)+`
 <section class="alt"><div class="wrap"><h2>${T(A.tlT)}</h2><div class="tl">${A.timeline.map(x=>`<div><b>${x.y}</b><br>${hl(T(x.t))}</div>`).join("")}</div></div></section>
 <section><div class="wrap"><h2>${T(A.valT)}</h2><div class="vals">${A.values.map(v=>`<div class="val"><b>${v[0]}</b><br><span style="font-size:14px;color:var(--muted)">${T(v[1])}</span></div>`).join("")}</div></div></section>`},
 
-services:()=>head(DATA.servicesPage.t)+`<section><div class="wrap"><div class="sim">${T(DATA.servicesPage.note)}</div><div class="grid">${DATA.services.map(svcCard).join("")}</div></div></section>`,
+services:()=>head(DATA.servicesPage.t)+`<section><div class="wrap"><div class="grid">${DATA.services.map(svcCard).join("")}</div></div></section>`,
 
 info:()=>{const I=DATA.info;const list=DATA.news.filter(n=>cat.news==="all"||n.cat===cat.news);return head(I.title)+`
 <section><div class="wrap"><h2>${T(I.svcT)}</h2><div class="grid">${I.svc.map(s=>`<div class="card"><div class="b"><h3 style="font-size:17px">${T(s.t)}</h3><p>${hl(T(s.d))}</p><a class="btn s" ${ext("https://www.kai.id")}>${T(U.detail)} →</a></div></div>`).join("")}</div></div></section>
