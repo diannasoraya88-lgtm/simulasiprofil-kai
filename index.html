@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KAI – Company Profile (Simulasi Akademik)</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#142B45;--blue:#00529C;--orange:#F58220;--red:#E52429;--bg:#fff;--bg2:#F4F6F8;--text:#1c2733;--muted:#5b6b7b;--card:#fff;--line:#dfe5ec;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root:not([data-theme="light"]){color-scheme:light}
+html{scroll-padding-top:80px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 Inter,'Open Sans',Arial,sans-serif}
+h1,h2,h3,h4{font-family:Poppins,Arial,sans-serif;color:var(--navy);line-height:1.25;margin:0 0 .5em}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);color:#fff}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--navy);z-index:30}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+.logo{font:700 22px Poppins;color:#fff;letter-spacing:.5px;cursor:pointer;white-space:nowrap}
+.logo span{color:var(--orange)}
+nav{display:flex;gap:4px;align-items:center}
+nav a{color:#dbe6f2;text-decoration:none;padding:8px 11px;border-radius:6px;font-size:14px;font-weight:500;cursor:pointer;transition:.2s}
+nav a:hover,nav a.on{background:rgba(255,255,255,.12);color:#fff}
+nav a.on{box-shadow:inset 0 -3px 0 var(--orange)}
+.lang{display:flex;border:1px solid rgba(255,255,255,.4);border-radius:6px;overflow:hidden}
+.lang button{background:none;border:0;color:#fff;padding:6px 10px;font:600 12px Inter;cursor:pointer}
+.lang button.on{background:var(--orange)}
+.burger{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer}
+@media(max-width:900px){.burger{display:block}nav{display:none;position:absolute;top:64px;left:0;right:0;background:var(--navy);flex-direction:column;align-items:stretch;padding:10px 20px 16px}nav.open{display:flex}.nav{position:relative}.right{display:flex;align-items:center;gap:8px}}
+.right{display:flex;align-items:center;gap:8px}
+.page{display:none;animation:fade .4s}
+.page.on{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.btn{display:inline-block;background:var(--blue);color:#fff;border:0;padding:11px 22px;border-radius:8px;font:600 14px Inter;text-decoration:none;cursor:pointer;transition:.2s}
+.btn:hover{background:#003f78;transform:translateY(-2px)}
+.btn.o{background:var(--orange)}.btn.o:hover{background:#d96e10}
+.btn.g{background:transparent;border:2px solid #fff}.btn.g:hover{background:rgba(255,255,255,.15)}
+.btn.s{padding:7px 14px;font-size:13px}
+.hero{background:linear-gradient(120deg,rgba(20,43,69,.93),rgba(0,82,156,.8)),repeating-linear-gradient(90deg,#142B45 0 40px,#1a3656 40px 80px);color:#fff;padding:110px 0 100px;position:relative;overflow:hidden}
+.hero h1{color:#fff;font-size:clamp(30px,5vw,52px);max-width:760px}
+.hero p{max-width:640px;color:#dbe6f2;font-size:18px}
+.hero .rail{position:absolute;left:0;right:0;bottom:0;height:8px;background:linear-gradient(90deg,var(--orange) 33%,var(--blue) 33% 66%,var(--red) 66%)}
+.hero .note{font-size:12px;opacity:.7;margin-top:28px}
+section{padding:64px 0}
+section.alt{background:var(--bg2)}
+.kicker{color:var(--orange);font:600 13px Poppins;letter-spacing:2px;text-transform:uppercase}
+.pagehead{background:var(--navy);color:#fff;padding:56px 0}
+.pagehead h1{color:#fff;margin:0;font-size:clamp(26px,4vw,40px)}
+.grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+.card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(20,43,69,.14)}
+.card .b{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .b p{margin:0;color:var(--muted);font-size:14.5px;flex:1}
+.ph{aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(135deg,var(--blue),var(--navy))}
+.ph.c1{background:linear-gradient(135deg,#00529C,#142B45)}.ph.c2{background:linear-gradient(135deg,#F58220,#b85a0a)}.ph.c3{background:linear-gradient(135deg,#142B45,#3a5a7e)}.ph.c4{background:linear-gradient(135deg,#E52429,#8f1417)}
+.ph svg{width:38%;opacity:.9}
+.ph small{position:absolute;bottom:6px;right:8px;color:#fff;opacity:.75;font-size:11px}
+.tag{display:inline-block;font-size:11px;font-weight:600;background:#fff2e5;color:#b85a0a;padding:2px 9px;border-radius:20px;width:fit-content}
+.meta{font-size:12px;color:var(--muted)}
+.two{display:grid;gap:32px;grid-template-columns:1fr 1fr}
+@media(max-width:760px){.two{grid-template-columns:1fr}section{padding:44px 0}}
+.stats{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr))}
+.stat{background:#fff;border:1px dashed var(--blue);border-radius:12px;padding:22px;text-align:center}
+.stat b{display:block;font:700 22px Poppins;color:var(--blue)}
+.ph-txt{background:#fff8e6;border-left:4px solid var(--orange);padding:2px 8px;border-radius:3px;font-size:.92em}
+.tl{border-left:3px solid var(--blue);margin-left:8px;padding-left:24px}
+.tl div{position:relative;margin-bottom:26px}
+.tl div::before{content:"";position:absolute;left:-33px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--orange);border:3px solid #fff;box-shadow:0 0 0 2px var(--blue)}
+.tl b{font-family:Poppins;color:var(--blue)}
+.vals{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.val{background:#fff;border-top:4px solid var(--orange);border-radius:10px;padding:16px;border:1px solid var(--line);border-top:4px solid var(--orange)}
+.val b{font-family:Poppins;color:var(--navy)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tabs button{border:1px solid var(--blue);background:#fff;color:var(--blue);padding:7px 15px;border-radius:20px;font:600 13px Inter;cursor:pointer;transition:.2s}
+.tabs button.on,.tabs button:hover{background:var(--blue);color:#fff}
+.photo{cursor:zoom-in}
+.lb{position:fixed;inset:0;background:rgba(10,20,34,.92);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb .in{width:min(860px,100%);color:#fff;text-align:center}
+.lb .ph{border-radius:12px}
+.lb button{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:18px;background:none;border:0;color:#fff;font-size:34px;cursor:pointer}
+.vid{aspect-ratio:16/9;background:#0e1c2e;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;text-align:center;padding:12px}
+.vid iframe{width:100%;height:100%;border:0}
+.org{display:flex;flex-direction:column;align-items:center;gap:14px}
+.node{background:#fff;border:2px solid var(--blue);border-radius:10px;padding:12px 22px;text-align:center;font-weight:600;color:var(--navy);min-width:200px}
+.node.top{background:var(--navy);color:#fff;border-color:var(--navy)}
+.node small{display:block;font-weight:400;color:var(--muted)}
+.node.top small{color:#b8c8da}
+.line{width:2px;height:22px;background:var(--blue)}
+.row{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.cbox{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px}
+.cbox h4{margin-bottom:4px}
+.map{aspect-ratio:16/9;border-radius:12px;background:repeating-linear-gradient(45deg,#e7edf3 0 14px,#f0f4f8 14px 28px);display:flex;align-items:center;justify-content:center;color:var(--muted);text-align:center;padding:16px;border:1px solid var(--line)}
+footer{background:var(--navy);color:#c5d3e2;padding:48px 0 24px;font-size:14px}
+footer h4{color:#fff;font-size:15px}
+footer a{color:#c5d3e2;text-decoration:none;cursor:pointer;display:block;padding:2px 0}
+footer a:hover{color:var(--orange)}
+.disc{border-top:1px solid rgba(255,255,255,.18);margin-top:26px;padding-top:18px;font-size:13px;color:#fff}
+#top{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--orange);color:#fff;border:0;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer;display:none;z-index:15;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+.sim{background:#fff8e6;border:1px solid var(--orange);color:#7a4300;font-size:13px;padding:8px 14px;border-radius:8px;margin-bottom:22px}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<div class="logo" onclick="go('home')">KAI<span>.</span> <span style="font:500 12px Inter;color:#b8c8da">Simulasi</span></div>
+<nav id="nav"></nav>
+<div class="right"><div class="lang"><button id="l-id" onclick="setLang('id')">ID</button><button id="l-en" onclick="setLang('en')">EN</button></div><button class="burger" onclick="document.getElementById('nav').classList.toggle('open')" aria-label="Menu">☰</button></div>
+</div></header>
+<main id="app"></main>
+<footer><div class="wrap" id="foot"></div></footer>
+<div class="lb" id="lb" onclick="if(event.target===this||event.target.tagName==='BUTTON')this.classList.remove('on')"><button aria-label="Close">×</button><div class="in" id="lbin"></div></div>
+<button id="top" onclick="scrollTo({top:0})" aria-label="Back to top">↑</button>
+
+<script>
+/* =====================================================================
+   DATA KONTEN — edit di sini. Setiap teks berbentuk {id:"...", en:"..."}.
+   Teks [ISI ...] = placeholder: ganti dengan data resmi terverifikasi.
+   ===================================================================== */
+const PH = "[ISI DENGAN DATA RESMI TERBARU]";
+const COLORS = {c1:"c1",c2:"c2",c3:"c3",c4:"c4"}; // kelas warna placeholder foto
+// FOTO: simpan file di folder assets/images/ lalu isi "img" dengan path relatif, mis. img:"assets/images/kereta1.jpg".
+// Galeri: tambahkan elemen ketiga, mis. ["train","c1","assets/images/kereta1.jpg"]. Kosong = placeholder warna.
+
+const DATA = {
+  nav: [
+    ["home",{id:"Beranda",en:"Home"}],["about",{id:"Tentang KAI",en:"About KAI"}],["services",{id:"Layanan",en:"Our Services"}],
+    ["info",{id:"Informasi",en:"Information"}],["gallery",{id:"Galeri",en:"Gallery"}],["org",{id:"Organisasi",en:"Organization"}],["contact",{id:"Kontak",en:"Contact Us"}]
+  ],
+  ui: {
+    aboutBtn:{id:"Tentang KAI",en:"About KAI"}, svcBtn:{id:"Jelajahi Layanan",en:"Explore Services"},
+    more:{id:"Baca selengkapnya",en:"Read more"}, sim:{id:"Konten Simulasi",en:"Simulated Content"},
+    detail:{id:"Informasi resmi",en:"Official information"}, all:{id:"Semua",en:"All"},
+    quick:{id:"Navigasi Cepat",en:"Quick Links"}, contact:{id:"Kontak",en:"Contact"}, social:{id:"Media Sosial",en:"Social Media"},
+    disclaimer:{id:"Website ini merupakan proyek simulasi akademik dan bukan merupakan situs resmi PT Kereta Api Indonesia (Persero).",en:"This website is an academic simulation project and is not the official website of PT Kereta Api Indonesia (Persero)."},
+    soon:{id:"Placeholder — tempelkan ID video YouTube resmi di DATA.videos",en:"Placeholder — paste an official YouTube video ID in DATA.videos"},
+    mapPh:{id:"Peta lokasi kantor pusat — sematkan peta (embed) setelah alamat diverifikasi",en:"Head office map — embed a map once the address is verified"}
+  },
+  hero:{
+    h:{id:"Menghubungkan Indonesia, Menggerakkan Masa Depan.",en:"Connecting Indonesia, Moving the Future."},
+    s:{id:"Melalui layanan transportasi perkeretaapian yang mengutamakan keselamatan, kenyamanan, dan konektivitas, KAI terus berperan dalam mendukung mobilitas masyarakat Indonesia.",en:"Through railway transportation services that prioritise safety, comfort and connectivity, KAI continues to support the mobility of the Indonesian people."}
+  },
+  intro:{t:{id:"Mengenal KAI",en:"Getting to Know KAI"},
+    p:{id:"PT Kereta Api Indonesia (Persero) adalah badan usaha milik negara yang bergerak di bidang transportasi perkeretaapian di Indonesia. KAI berperan dalam mendukung mobilitas orang dan barang serta berkomitmen pada pelayanan masyarakat.",en:"PT Kereta Api Indonesia (Persero) is a state-owned enterprise engaged in railway transportation in Indonesia. KAI supports the movement of people and goods and is committed to serving the public."}},
+  stats:[ // JANGAN isi angka sebelum diverifikasi
+    {v:"[ISI ANGKA]",l:{id:"Penumpang per tahun",en:"Passengers per year"}},
+    {v:"[ISI ANGKA]",l:{id:"Panjang jalur (km)",en:"Track length (km)"}},
+    {v:"[ISI ANGKA]",l:{id:"Jumlah stasiun",en:"Number of stations"}},
+    {v:"[ISI ANGKA]",l:{id:"Jumlah pegawai",en:"Employees"}}],
+  services:[
+    {c:"c1",t:{id:"Angkutan Penumpang",en:"Passenger Transport"},d:{id:"Layanan perjalanan kereta api antarkota dan perkotaan yang dioperasikan KAI.",en:"Intercity and urban railway passenger services operated by KAI."},who:"KAI",url:"https://www.kai.id"},
+    {c:"c2",t:{id:"Angkutan Barang",en:"Freight Transport"},d:{id:"Layanan pengangkutan barang dan logistik melalui jaringan kereta api.",en:"Goods and logistics transport through the railway network."},who:"KAI",url:"https://www.kai.id"},
+    {c:"c3",t:{id:"Layanan Pariwisata",en:"Tourism Services"},d:{id:"Perjalanan wisata dengan kereta api. [Verifikasi cakupan layanan di situs resmi]",en:"Rail-based tourism travel. [Verify service scope on the official site]"},who:"KAI",url:"https://www.kai.id"},
+    {c:"c4",t:{id:"Layanan Pendukung Perkeretaapian",en:"Railway Support Services"},d:{id:"Layanan penunjang operasional perkeretaapian. [ISI DENGAN DATA RESMI TERBARU]",en:"Services supporting railway operations. [FILL WITH LATEST OFFICIAL DATA]"},who:"KAI",url:"https://www.kai.id"},
+    {c:"c1",t:{id:"Ekosistem Bisnis Perkeretaapian",en:"Railway Business Ecosystem"},d:{id:"Layanan yang dijalankan anak perusahaan atau entitas lain dalam ekosistem KAI, bukan dioperasikan langsung oleh perusahaan induk. [Daftar anak perusahaan: ISI DENGAN DATA RESMI]",en:"Services run by subsidiaries or other entities in the KAI ecosystem, not directly operated by the parent company. [Subsidiary list: FILL WITH OFFICIAL DATA]"},who:"SUB",url:"https://www.kai.id"}],
+  whoLabel:{KAI:{id:"Dioperasikan PT KAI (induk)",en:"Operated by PT KAI (parent)"},SUB:{id:"Anak perusahaan / entitas lain",en:"Subsidiary / other entity"}},
+  about:{
+    title:{id:"Tentang PT Kereta Api Indonesia (Persero)",en:"About PT Kereta Api Indonesia (Persero)"},
+    profile:{id:"PT Kereta Api Indonesia (Persero) adalah BUMN penyelenggara jasa transportasi perkeretaapian di Indonesia. Sejarah perkeretaapian di Indonesia bermula sejak masa kolonial dan berkembang hingga menjadi perusahaan negara modern. Lengkapi profil formal dari publikasi resmi KAI.",en:"PT Kereta Api Indonesia (Persero) is a state-owned enterprise providing railway transport services in Indonesia. Railways in Indonesia date back to the colonial era and developed into a modern state company. Complete the formal profile from official KAI publications."},
+    timeline:[
+      {y:"1864–1867",t:{id:"Pembangunan jalur kereta api pertama di Hindia Belanda dimulai (1864) dan jalur Semarang–Tanggung dibuka untuk umum (1867).",en:"Construction of the first railway in the Dutch East Indies began (1864) and the Semarang–Tanggung line opened to the public (1867)."}},
+      {y:"1945",t:{id:"Setelah kemerdekaan, perkeretaapian diambil alih oleh bangsa Indonesia; tanggal 28 September diperingati sebagai Hari Kereta Api.",en:"After independence, the railways were taken over by Indonesians; 28 September is commemorated as Railway Day."}},
+      {y:"[TAHUN]",t:{id:"Perubahan bentuk badan hukum bertahap hingga menjadi PT Kereta Api Indonesia (Persero). [Verifikasi tahun dan tahapan di sumber resmi]",en:"Gradual changes in legal form until becoming PT Kereta Api Indonesia (Persero). [Verify years and stages in official sources]"}},
+      {y:"[TAHUN]",t:{id:"[ISI DENGAN DATA RESMI TERBARU] — tonggak perkembangan perusahaan.",en:"[FILL WITH LATEST OFFICIAL DATA] — company development milestones."}}],
+    visionT:{id:"Visi",en:"Vision"}, missionT:{id:"Misi",en:"Mission"},
+    vision:{id:"[ISI VISI RESMI KAI TERBARU]",en:"[FILL WITH KAI'S LATEST OFFICIAL VISION]"},
+    mission:{id:"[ISI MISI RESMI KAI TERBARU]",en:"[FILL WITH KAI'S LATEST OFFICIAL MISSION]"},
+    tlT:{id:"Sejarah Singkat",en:"Brief History"}, valT:{id:"Nilai Budaya AKHLAK",en:"AKHLAK Corporate Values"},
+    values:[["Amanah",{id:"Memegang teguh kepercayaan yang diberikan",en:"Upholding the trust given"}],["Kompeten",{id:"Terus belajar dan mengembangkan kapabilitas",en:"Continuously learning and developing capability"}],["Harmonis",{id:"Saling peduli dan menghargai perbedaan",en:"Caring for each other and respecting differences"}],["Loyal",{id:"Berdedikasi dan mengutamakan kepentingan bangsa dan negara",en:"Dedicated, putting nation and state first"}],["Adaptif",{id:"Terus berinovasi dan antusias menghadapi perubahan",en:"Innovating and embracing change"}],["Kolaboratif",{id:"Membangun kerja sama yang sinergis",en:"Building synergistic cooperation"}]]
+  },
+  servicesPage:{t:{id:"Layanan KAI",en:"KAI Services"},note:{id:"Layanan dibedakan antara yang dioperasikan langsung PT KAI dan yang dijalankan anak perusahaan atau entitas lain.",en:"Services are distinguished between those operated directly by PT KAI and those run by subsidiaries or other entities."}},
+  info:{
+    title:{id:"Informasi dan Berita KAI",en:"KAI Information and News"},
+    svcT:{id:"Informasi Layanan",en:"Service Information"}, newsT:{id:"Berita dan Aktivitas Perusahaan",en:"News and Company Activities"},
+    svc:[
+      {t:{id:"Informasi Perjalanan",en:"Travel Information"},d:{id:"Jadwal dan rute perjalanan melalui kanal resmi KAI.",en:"Schedules and routes via KAI's official channels."}},
+      {t:{id:"Informasi Tiket",en:"Ticket Information"},d:{id:"Pemesanan tiket dilakukan melalui kanal resmi KAI (situs ini tidak menjual tiket).",en:"Tickets are booked through KAI's official channels (this site does not sell tickets)."}},
+      {t:{id:"Fasilitas Perjalanan",en:"Travel Facilities"},d:{id:"Fasilitas stasiun dan kereta. [ISI DENGAN DATA RESMI]",en:"Station and train facilities. [FILL WITH OFFICIAL DATA]"}},
+      {t:{id:"Keselamatan dan Keamanan",en:"Safety and Security"},d:{id:"Panduan keselamatan bagi pelanggan. [ISI DENGAN DATA RESMI]",en:"Safety guidance for passengers. [FILL WITH OFFICIAL DATA]"}},
+      {t:{id:"Informasi Pelanggan",en:"Customer Information"},d:{id:"Ketentuan dan layanan pelanggan. [ISI DENGAN DATA RESMI]",en:"Customer terms and services. [FILL WITH OFFICIAL DATA]"}}],
+    cats:{corp:{id:"Berita Perusahaan",en:"Company News"},social:{id:"Kegiatan Sosial",en:"Social Activities"},innov:{id:"Inovasi Layanan",en:"Service Innovation"},pub:{id:"Pelayanan Publik",en:"Public Service"},safety:{id:"Kampanye Keselamatan",en:"Safety Campaign"}}
+  },
+  news:[ // semua contoh = KONTEN SIMULASI
+    {c:"c1",date:"[TANGGAL]",cat:"corp",t:{id:"Judul berita perusahaan (contoh)",en:"Company news headline (sample)"},d:{id:"Ringkasan contoh. Ganti dengan berita resmi KAI yang telah diverifikasi.",en:"Sample summary. Replace with verified official KAI news."},url:"https://www.kai.id"},
+    {c:"c2",date:"[TANGGAL]",cat:"social",t:{id:"Judul kegiatan sosial (contoh)",en:"Social activity headline (sample)"},d:{id:"Ringkasan contoh kegiatan sosial perusahaan.",en:"Sample summary of a company social activity."},url:"https://www.kai.id"},
+    {c:"c3",date:"[TANGGAL]",cat:"innov",t:{id:"Judul inovasi layanan (contoh)",en:"Service innovation headline (sample)"},d:{id:"Ringkasan contoh inovasi layanan.",en:"Sample summary of a service innovation."},url:"https://www.kai.id"},
+    {c:"c4",date:"[TANGGAL]",cat:"safety",t:{id:"Judul kampanye keselamatan (contoh)",en:"Safety campaign headline (sample)"},d:{id:"Ringkasan contoh kampanye keselamatan perjalanan.",en:"Sample summary of a travel safety campaign."},url:"https://www.kai.id"},
+    {c:"c1",date:"[TANGGAL]",cat:"pub",t:{id:"Judul program pelayanan publik (contoh)",en:"Public service programme headline (sample)"},d:{id:"Ringkasan contoh program pelayanan publik.",en:"Sample summary of a public service programme."},url:"https://www.kai.id"},
+    {c:"c3",date:"[TANGGAL]",cat:"corp",t:{id:"Judul berita lain (contoh)",en:"Other news headline (sample)"},d:{id:"Ringkasan contoh berita.",en:"Sample news summary."},url:"https://www.kai.id"}],
+  gallery:{
+    title:{id:"Galeri KAI",en:"KAI Gallery"}, photoT:{id:"Foto",en:"Photos"}, videoT:{id:"Video",en:"Videos"},
+    cats:{train:{id:"Kereta Api",en:"Trains"},station:{id:"Stasiun",en:"Stations"},interior:{id:"Interior Kereta",en:"Train Interior"},facility:{id:"Fasilitas Pelayanan",en:"Service Facilities"},activity:{id:"Aktivitas Perusahaan",en:"Company Activities"}},
+    photos:[["train","c1"],["train","c3"],["station","c2"],["station","c1"],["interior","c4"],["interior","c3"],["facility","c2"],["facility","c1"],["activity","c4"],["activity","c3"]],
+    vcats:{profile:{id:"Profil Perusahaan",en:"Company Profile"},trip:{id:"Perjalanan Kereta Api",en:"Train Journeys"},facility:{id:"Fasilitas dan Layanan",en:"Facilities & Services"},safety:{id:"Keselamatan Perjalanan",en:"Travel Safety"},activity:{id:"Aktivitas Perusahaan",en:"Company Activities"}},
+    // Isi youtubeId dengan ID video resmi terverifikasi, mis. "dQw4w9WgXcQ"
+    videos:[["profile",""],["trip",""],["facility",""],["safety",""],["activity",""]]
+  },
+  org:{title:{id:"Struktur Organisasi",en:"Organizational Structure"},
+    note:{id:"Nama pejabat tidak diisi. Ganti placeholder dengan data resmi terbaru.",en:"Officials' names are not filled in. Replace placeholders with the latest official data."},
+    kom:{id:"Dewan Komisaris",en:"Board of Commissioners"},dir:{id:"Direksi",en:"Board of Directors"},du:{id:"Direktur Utama",en:"President Director"},
+    units:[{id:"Direktorat / Unit Kerja 1",en:"Directorate / Unit 1"},{id:"Direktorat / Unit Kerja 2",en:"Directorate / Unit 2"},{id:"Direktorat / Unit Kerja 3",en:"Directorate / Unit 3"},{id:"Direktorat / Unit Kerja 4",en:"Directorate / Unit 4"}],
+    sek:{id:"Sekretaris Perusahaan",en:"Corporate Secretary"}, name:{id:"[NAMA PEJABAT]",en:"[OFFICIAL'S NAME]"}},
+  contact:{title:{id:"Hubungi KAI",en:"Contact KAI"},
+    addr:{l:{id:"Alamat Kantor Pusat",en:"Head Office Address"},v:"[ISI ALAMAT RESMI TERVERIFIKASI]"},
+    cc:{l:{id:"Contact Center",en:"Contact Center"},v:"[ISI NOMOR RESMI]"},
+    mail:{l:{id:"Email Layanan Pelanggan",en:"Customer Service Email"},v:"[ISI EMAIL RESMI]"},
+    web:{l:{id:"Website Resmi",en:"Official Website"},v:"https://www.kai.id"},
+    soc:{l:{id:"Media Sosial Resmi",en:"Official Social Media"},v:"[ISI AKUN RESMI]"},
+    visit:{id:"Kunjungi Website Resmi KAI",en:"Visit KAI's Official Website"},call:{id:"Hubungi Layanan Pelanggan",en:"Contact Customer Service"},
+    callUrl:"https://www.kai.id" /* ganti dengan kanal layanan pelanggan resmi (mis. tel:xxx) */}
+};
+
+
+/* ===================== MESIN TAMPILAN ===================== */
+let lang="id", cur="home", cat={photo:"all",video:"all",news:"all"};
+try{lang=localStorage.getItem("kai-lang")||"id"}catch(e){}
+const U=DATA.ui, T=o=>o&&typeof o==="object"&&("id" in o)?o[lang]:o;
+const ph=(c,label,img)=>img?`<div class="ph"><img src="${img}" style="width:100%;height:100%;object-fit:cover" alt=""></div>`:
+ `<div class="ph ${c}"><svg viewBox="0 0 64 64" fill="none" stroke="#fff" stroke-width="3"><rect x="14" y="8" width="36" height="38" rx="8"/><rect x="19" y="14" width="26" height="14" rx="3"/><circle cx="23" cy="38" r="2.5" fill="#fff"/><circle cx="41" cy="38" r="2.5" fill="#fff"/><path d="M20 56l6-10M44 56l-6-10"/></svg><small>${label||"Foto placeholder"}</small></div>`;
+const hl=s=>String(s).replace(/(\[[^\]]+\])/g,'<span class="ph-txt">$1</span>');
+const ext=u=>/^https?:/.test(u)?`href="${u}" target="_blank" rel="noopener"`:`href="${u}"`;
+
+function svcCard(s){return `<div class="card">${ph(s.c,"",s.img)}<div class="b"><span class="tag">${T(DATA.whoLabel[s.who])}</span><h3 style="font-size:18px">${T(s.t)}</h3><p>${hl(T(s.d))}</p><a class="btn s" ${ext(s.url)}>${T(U.detail)} →</a></div></div>`}
+function newsCard(n){return `<div class="card">${ph(n.c,"",n.img)}<div class="b"><div class="meta">${hl(n.date)} · ${T(DATA.info.cats[n.cat])} · <b style="color:var(--orange)">${T(U.sim)}</b></div><h3 style="font-size:17px">${T(n.t)}</h3><p>${T(n.d)}</p><a class="btn s" ${ext(n.url)}>${T(U.more)} →</a></div></div>`}
+function head(t){return `<div class="pagehead"><div class="wrap"><h1>${T(t)}</h1></div></div>`}
+function photoGrid(list){return `<div class="grid">${list.map(([k,c,img],i)=>`<div class="card photo" onclick="openLb(${DATA.gallery.photos.findIndex(p=>p===list[i])})">${ph(c,T(DATA.gallery.cats[k]),img)}</div>`).join("")}</div>`}
+function tabs(map,key,fn){return `<div class="tabs"><button class="${cat[key]==="all"?"on":""}" onclick="${fn}('all')">${T(U.all)}</button>${Object.entries(map).map(([k,v])=>`<button class="${cat[key]===k?"on":""}" onclick="${fn}('${k}')">${T(v)}</button>`).join("")}</div>`}
+
+const PAGES={
+home:()=>`
+<div class="hero"><div class="wrap"><div class="kicker">PT Kereta Api Indonesia (Persero)</div><h1>${T(DATA.hero.h)}</h1><p>${T(DATA.hero.s)}</p>
+<p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn o" onclick="go('about')">${T(U.aboutBtn)}</a><a class="btn g" onclick="go('services')">${T(U.svcBtn)}</a></p>
+<div class="note">${T(U.disclaimer)}</div></div><div class="rail"></div></div>
+<section><div class="wrap two"><div><div class="kicker">KAI</div><h2>${T(DATA.intro.t)}</h2><p>${T(DATA.intro.p)}</p></div>${ph("c1","")}</div></section>
+<section class="alt"><div class="wrap"><h2>${T(DATA.nav[2][1])}</h2><div class="grid">${DATA.services.slice(0,4).map(svcCard).join("")}</div></div></section>
+<section><div class="wrap"><h2>KAI at a Glance</h2><div class="stats">${DATA.stats.map(s=>`<div class="stat"><b class="ph-txt">${s.v}</b>${T(s.l)}</div>`).join("")}</div></div></section>
+<section class="alt"><div class="wrap"><h2>${lang==="id"?"Informasi Terbaru":"Latest Information"}</h2><div class="grid">${DATA.news.slice(0,3).map(newsCard).join("")}</div><p><a class="btn" onclick="go('info')">${lang==="id"?"Semua informasi":"All information"}</a></p></div></section>
+<section><div class="wrap"><h2>${lang==="id"?"Galeri Pilihan":"Featured Gallery"}</h2>${photoGrid(DATA.gallery.photos.slice(0,4).map(p=>p))}<p><a class="btn" onclick="go('gallery')">${T(DATA.nav[4][1])}</a></p></div></section>`,
+
+about:()=>{const A=DATA.about;return head(A.title)+`
+<section><div class="wrap two"><div><h2>${lang==="id"?"Profil Perusahaan":"Company Profile"}</h2><p>${hl(T(A.profile))}</p></div>
+<div><div class="cbox"><h4>${T(A.visionT)}</h4><p>${hl(T(A.vision))}</p><h4>${T(A.missionT)}</h4><p>${hl(T(A.mission))}</p></div></div></div></section>
+<section class="alt"><div class="wrap"><h2>${T(A.tlT)}</h2><div class="sim">${lang==="id"?"Verifikasi seluruh tahun dan fakta pada publikasi resmi KAI sebelum dipresentasikan.":"Verify all years and facts against official KAI publications before presenting."}</div><div class="tl">${A.timeline.map(x=>`<div><b>${x.y}</b><br>${hl(T(x.t))}</div>`).join("")}</div></div></section>
+<section><div class="wrap"><h2>${T(A.valT)}</h2><div class="vals">${A.values.map(v=>`<div class="val"><b>${v[0]}</b><br><span style="font-size:14px;color:var(--muted)">${T(v[1])}</span></div>`).join("")}</div></div></section>`},
+
+services:()=>head(DATA.servicesPage.t)+`<section><div class="wrap"><div class="sim">${T(DATA.servicesPage.note)}</div><div class="grid">${DATA.services.map(svcCard).join("")}</div></div></section>`,
+
+info:()=>{const I=DATA.info;const list=DATA.news.filter(n=>cat.news==="all"||n.cat===cat.news);return head(I.title)+`
+<section><div class="wrap"><h2>${T(I.svcT)}</h2><div class="grid">${I.svc.map(s=>`<div class="card"><div class="b"><h3 style="font-size:17px">${T(s.t)}</h3><p>${hl(T(s.d))}</p><a class="btn s" ${ext("https://www.kai.id")}>${T(U.detail)} →</a></div></div>`).join("")}</div></div></section>
+<section class="alt"><div class="wrap"><h2>${T(I.newsT)}</h2><div class="sim">${T(U.sim)}: ${lang==="id"?"seluruh berita di bawah adalah contoh, bukan berita resmi KAI.":"all news below are samples, not official KAI news."}</div>${tabs(I.cats,"news","setNews")}<div class="grid">${list.map(newsCard).join("")}</div></div></section>`},
+
+gallery:()=>{const G=DATA.gallery;const ps=G.photos.filter(p=>cat.photo==="all"||p[0]===cat.photo);const vs=G.videos.filter(v=>cat.video==="all"||v[0]===cat.video);return head(G.title)+`
+<section><div class="wrap"><h2>${T(G.photoT)}</h2>${tabs(G.cats,"photo","setPhoto")}${photoGrid(ps)}</div></section>
+<section class="alt"><div class="wrap"><h2>${T(G.videoT)}</h2>${tabs(G.vcats,"video","setVideo")}<div class="grid">${vs.map(([k,id])=>`<div class="card"><div class="vid">${id?`<iframe src="https://www.youtube.com/embed/${id}" allowfullscreen loading="lazy"></iframe>`:T(U.soon)}</div><div class="b"><h3 style="font-size:16px">${T(G.vcats[k])}</h3></div></div>`).join("")}</div></div></section>`},
+
+org:()=>{const O=DATA.org;const n=(t,cls="")=>`<div class="node ${cls}">${T(t)}<small class="ph-txt">${T(O.name)}</small></div>`;return head(O.title)+`
+<section><div class="wrap"><div class="sim">${T(O.note)}</div><div class="org">${n(O.kom)}<div class="line"></div>${n(O.du,"top")}<div class="line"></div><div class="node">${T(O.dir)}</div><div class="line"></div>
+<div class="row">${O.units.map(u=>`<div class="node">${T(u)}<small class="ph-txt">${T(O.name)}</small></div>`).join("")}</div><div class="line"></div>${n(O.sek)}</div></div></section>`},
+
+contact:()=>{const C=DATA.contact;const row=r=>`<div class="cbox"><h4>${T(r.l)}</h4><div>${hl(r.v)}</div></div>`;return head(C.title)+`
+<section><div class="wrap two"><div style="display:grid;gap:14px">${[C.addr,C.cc,C.mail,C.soc].map(row).join("")}<div class="cbox"><h4>${T(C.web.l)}</h4><a ${ext(C.web.v)}>${C.web.v}</a></div>
+<p style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn o" ${ext(C.web.v)}>${T(C.visit)}</a><a class="btn" ${ext(C.callUrl)}>${T(C.call)}</a></p></div>
+<div class="map">${T(U.mapPh)}</div></div></section>`}
+};
+
+function renderNav(){document.getElementById("nav").innerHTML=DATA.nav.map(([k,l])=>`<a class="${cur===k?"on":""}" onclick="go('${k}')">${T(l)}</a>`).join("");
+ document.getElementById("l-id").className=lang==="id"?"on":"";document.getElementById("l-en").className=lang==="en"?"on":""}
+function renderFoot(){const C=DATA.contact;document.getElementById("foot").innerHTML=`<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
+<div><h4>PT Kereta Api Indonesia (Persero)</h4><p>${T(DATA.intro.p).slice(0,110)}…</p></div>
+<div><h4>${T(U.quick)}</h4>${DATA.nav.map(([k,l])=>`<a onclick="go('${k}')">${T(l)}</a>`).join("")}</div>
+<div><h4>${T(U.contact)}</h4><div>${hl(C.addr.v)}</div><div>${hl(C.cc.v)}</div><div>${hl(C.mail.v)}</div></div>
+<div><h4>${T(U.social)}</h4><div>${hl(C.soc.v)}</div></div></div><div class="disc">${T(U.disclaimer)}</div>`}
+function render(){document.documentElement.lang=lang;renderNav();renderFoot();
+ const app=document.getElementById("app");app.innerHTML=`<div class="page on">${PAGES[cur]()}</div>`;
+ document.getElementById("nav").classList.remove("open")}
+function go(p){if(!PAGES[p])p="home";cur=p;try{history.replaceState(null,"","#"+p)}catch(e){}render();scrollTo({top:0,behavior:"instant"})}
+function setLang(l){lang=l;try{localStorage.setItem("kai-lang",l)}catch(e){}render()}
+function setPhoto(k){cat.photo=k;render()} function setVideo(k){cat.video=k;render()} function setNews(k){cat.news=k;render()}
+function openLb(i){const p=DATA.gallery.photos[i];document.getElementById("lbin").innerHTML=ph(p[1],"",p[2])+`<p>${T(DATA.gallery.cats[p[0]])}</p>`;document.getElementById("lb").classList.add("on")}
+addEventListener("scroll",()=>{document.getElementById("top").style.display=scrollY>400?"block":"none"});
+addEventListener("hashchange",()=>{const h=location.hash.slice(1);if(h&&h!==cur){cur=PAGES[h]?h:"home";render()}});
+cur=PAGES[location.hash.slice(1)]?location.hash.slice(1):"home";render();
+</script>
+</body>
+</html>
