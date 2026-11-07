@@ -298,7 +298,7 @@ home:()=>`
 <div class="hero"><div class="wrap"><div class="kicker">PT Kereta Api Indonesia (Persero)</div><h1>${T(DATA.hero.h)}</h1><p>${T(DATA.hero.s)}</p>
 <p style="display:flex;gap:12px;flex-wrap:wrap"><a class="btn o" onclick="go('about')">${T(U.aboutBtn)}</a><a class="btn g" onclick="go('services')">${T(U.svcBtn)}</a></p>
 <div class="note">${T(U.disclaimer)}</div></div><div class="rail"></div></div>
-<section><div class="wrap two"><div><div class="kicker">KAI</div><h2>${T(DATA.intro.t)}</h2><p>${T(DATA.intro.p)}</p></div>${ph("c1","")}</div></section>
+<section><div class="wrap two"><div><h2>${T(DATA.intro.t)}</h2><p>${T(DATA.intro.p)}</p></div>${ph("c1","",IMG["lokomotif-kai-kereta-penumpang"])}</div></section>
 <section class="alt"><div class="wrap"><h2>${T(DATA.nav[2][1])}</h2><div class="grid">${DATA.services.slice(0,4).map(svcCard).join("")}</div></div></section>
 <section><div class="wrap"><h2>${lang==="id"?"Informasi Terbaru":"Latest Information"}</h2><div class="grid ngrid">${DATA.news.slice(0,3).map(newsCard).join("")}</div><p><a class="btn" onclick="go('info')">${lang==="id"?"Semua informasi":"All information"}</a></p></div></section>
 <section class="alt"><div class="wrap"><h2>${lang==="id"?"Galeri Pilihan":"Featured Gallery"}</h2>${photoGrid(DATA.gallery.photos.slice(0,4).map(p=>p))}<p><a class="btn" onclick="go('gallery')">${T(DATA.nav[4][1])}</a></p></div></section>`,
